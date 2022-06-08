@@ -1,0 +1,281 @@
+* {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 0.83vw;
+}
+
+.wrapper {
+	width: 99.1vw;
+	display: grid;
+	grid-template-columns: 12.4vw 1fr;
+	grid-template-rows: 1fr 10.42vw;
+	grid-template-areas: 
+		"header main"
+		"header footer";
+	overflow-x: clip;
+}
+
+header {
+	grid-area: header;
+}
+
+#menu-button {
+	display: none;
+}
+
+#menu {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 3.13vw;
+	background: linear-gradient(180deg, #9CEEE4 59.37%, #90CEC8 100%);
+}
+
+#menu nav {
+	margin-top: 6.83vw;
+}
+
+#menu ul {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 2.35vw;
+}
+
+#menu li {
+	position: relative;
+	z-index: 1;
+}
+
+#menu li::after {
+	content: "";
+	width: 120%;
+	height: 120%;
+	position: absolute;
+	top: -20%;
+	left: -15%;
+	border: 0.21vw solid white;
+	border-radius: 1.55vw;
+	opacity: 0;
+	transition: opacity .3s ease;
+	z-index: -1;
+}
+
+#menu li:hover::after {
+	opacity: 1;
+}
+
+#menu li a {
+	font-size: 1.875em;
+	font-weight: 500;
+	text-decoration: none;
+	color: black;
+}
+
+#menu li.active::after {
+	content: "";
+	width: 120%;
+	height: 120%;
+	position: absolute;
+	top: -20%;
+	left: -15%;
+	border: 0.21vw solid white;
+	border-radius: 1.55vw;
+	opacity: 1;
+	z-index: -1;
+}
+
+main {
+	grid-area: main;
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	grid-area: footer;
+	background: linear-gradient(180deg, #9CEEE4 -119.07%, #90CEC8 100%);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.31vw 6.5vw;
+}
+
+footer span {
+	display: block;
+}
+
+#cont-name {
+	font-size: 1.875em;
+	font-weight: 700;
+}
+
+#cont-motto {
+	font-weight: 500;
+	margin-bottom: 2.14vw;
+}
+
+#footer-nav ul {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	width: 23.8vw;
+	gap: 0.72vw;
+}
+
+#footer-nav a {
+	text-decoration: none;
+	color: black;
+	font-weight: 700;
+}
+
+#footer-nav li:nth-child(3) {
+	margin-left: 2.3vw;
+}
+
+#footer-nav li:nth-child(2) {
+	margin-right: 2.3vw;
+}
+
+#cont {
+	font-weight: 700;
+	margin-left: 1.3vw;
+}
+
+#cont-tel {
+	position: relative;
+	z-index: 1;
+}
+
+#cont-tel::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -1.15vw;
+	background-image: url("../img/tel.svg");
+	background-size: 0.63vw 0.84vw;
+	width: 0.63vw;
+	height: 0.84vw;
+	z-index: -1;
+}
+
+#cont-email {
+	position: relative;
+	z-index: 1;
+}
+
+#cont-email::before {
+	content: "";
+	position: absolute;
+	top: 0.15vw;
+	left: -1.3vw;
+	background-image: url("../img/email.svg");
+	background-size: 0.89vw 0.63vw;
+	width: 0.89vw;
+	height: 0.63vw;
+	z-index: -1;
+}
+
+@media screen and (max-width: 500px) {
+	* {
+		font-size: 4.45vw;
+	}
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		width: 100vw;
+	}
+
+	header {
+		position: relative;
+	}
+
+	#menu {
+		position: fixed;
+		width: 70vw;
+		margin-left: 30vw;
+		z-index: 11;
+		padding-top: 50.12vw;
+		opacity: 0;
+		left: 70vw;
+	}
+
+	@keyframes right-to-left {
+		100% {
+			left: 0;
+			opacity: 1;
+		}
+	}
+
+	@keyframes darker {
+		0% {
+			box-shadow: -31vw 0 0 rgba(0, 0, 0, 0);
+		}
+
+		100% {
+			box-shadow: -31vw 0 0 rgba(0, 0, 0, .6);
+		}
+	}
+
+	#menu.opened {
+		animation: right-to-left .3s forwards ease, darker .3s forwards ease .2s;
+	}
+
+	#logo {
+		display: none;
+	}
+
+	#menu ul {
+		gap: 11.12vw;
+		align-items: center;
+	}
+
+	#menu li::after {
+		display: none;
+	}
+
+	#menu-button {
+		display: block;
+		position: absolute;
+		top: 8.34vw;
+		right: 6.95vw;
+		z-index: 12;
+		width: 6.95vw;
+	}
+
+	#menu-button.fixed {
+		position: fixed;
+	}
+	
+	#cont-motto {
+		margin-bottom: 10.14vw;
+	}
+
+	#footer-nav {
+		display: none;
+	}
+	
+	#cont {
+		margin-left: 5.3vw;
+	}
+	
+	#cont-tel::before {
+		top: .3vw;
+		left: -5.15vw;
+		background-size: 3.34vw 4.45vw;
+		width: 3.34vw;
+		height: 4.45vw;
+	}
+	
+	#cont-email::before {
+		top: 1vw;
+		left: -5.3vw;
+		background-size: 4.73vw 3.34vw;
+		width: 4.73vw;
+		height: 3.34vw;
+	}
+}

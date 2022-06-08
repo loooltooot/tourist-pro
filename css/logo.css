@@ -1,0 +1,12 @@
+#logo {
+    width: 8vw;
+    height: 16.3vh;
+}
+
+#logo-back {
+    transition: all .3s ease;
+}
+
+#logo:hover #logo-back {
+    stop-color: #4E9B93;
+}

@@ -1,0 +1,153 @@
+.container {
+	padding: 0 8.08vw;
+}
+
+section {
+	height: 100vh;
+    background: url("../img/search-back.svg") no-repeat center;
+    display: grid;
+    align-items: center;
+}
+
+span {
+    display: block;
+}
+
+section ul {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0;
+}
+
+section li {
+	width: 19.85vw;
+	height: 27.45vw;
+	border-radius: 1.55vw;
+	display: flex;
+	align-items: flex-end;
+	box-shadow: .53vw .53vw 1.55vw #C3EDE9;
+}
+
+section ul li:nth-child(1) {
+	background: url("../img/карелия.jpg") -4.21vw -3vw / cover;
+}
+
+section ul li:nth-child(2) {
+	background: url("../img/georgia.jfif") -7vw -3.13vw / cover;
+}
+
+section ul li:nth-child(3) {
+	background: url("../img/сура.jpg") -0.84vw center / 250%;
+    filter: saturate(160%);
+}
+
+.description {
+	border-bottom-left-radius: 1.3vw;
+	border-bottom-right-radius: 1.3vw;
+	background: linear-gradient(262.97deg, #65FFED 0%, #47DECF 100%);
+	padding: 0.37vw .7vw 1.2vw;
+	position: relative;
+	z-index: 1;
+    flex-grow: 1;
+}
+
+.description::before {
+	content: "";
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: linear-gradient(-262.97deg, #65FFED 0%, #47DECF 100%);
+	border-bottom-left-radius: 1.3vw;
+	border-bottom-right-radius: 1.3vw;
+	opacity: 0;
+	transition: opacity .7s ease-in;
+}
+
+.description:hover::before {
+	opacity: 1;
+}
+
+.description .name {
+	font-size: 1.875em;
+	font-weight: 500;
+	margin-bottom: .63vw;
+}
+
+.description .price {
+    font-size: 1.875em;
+	font-weight: 500;
+    margin-top: 1.36vw;
+}
+
+.button {
+	box-sizing: border-box;
+	border-radius: 50%;
+	width: 1.31vw;
+	height: 1.31vw;
+	border: .21vw solid #000000;
+	transition: background-color .3s ease;
+}
+
+.button:hover {
+	background: black;
+}
+
+.description .button {
+	position: absolute;
+	left: 17.3vw;
+	bottom: 6vw;
+}
+
+@media screen and (max-width: 500px) {
+	section {
+		height: fit-content;
+	}
+
+	section ul {
+		justify-content: center;
+		align-items: center;
+		margin-top: 30vw;
+		margin-bottom: 15vw;
+		gap: 20vw;
+	}
+	
+	section li {
+		width: 71.39vw;
+		height: 112.73vw;
+		border-radius: 8.3vw;
+		box-shadow: 2.78vw 2.78vw 8.3vw #C3EDE9;
+	}
+	
+	section ul li:nth-child(1) {
+		background: url("../img/карелия.jpg") -4.21vw -3vw / cover;
+	}
+	
+	section ul li:nth-child(2) {
+		background: url("../img/georgia.jfif") -7vw -3.13vw / cover;
+	}
+	
+	section ul li:nth-child(3) {
+		background: url("../img/сура.jpg") -0.84vw center / 250%;
+		filter: saturate(160%);
+	}
+	
+	.description {
+		border-bottom-left-radius: 8vw;
+		border-bottom-right-radius: 8vw;
+		padding: 1vw 3vw 4vw;
+	}
+	
+	.description::before {
+		border-bottom-left-radius: 8vw;
+		border-bottom-right-radius: 8vw;
+	}
+
+	.button {
+		display: none;
+	}
+}
